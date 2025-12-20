@@ -1,0 +1,22 @@
+.header {
+  padding: 1rem 0;
+}
+
+.nav {
+  display: flex;
+  gap: 1.5rem;        /* space between links */
+  justify-content: flex-end; /* or space-between / flex-start */
+  align-items: center;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;       /* adjust to your theme */
+}
+
+.name {
+    display: flex;
+    flex-grow: 1;      /* pushes links to the right */
+    justify-content: flex-start;
+    font-size: 200%;
+}
