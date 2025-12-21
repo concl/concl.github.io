@@ -2,3 +2,20 @@
 .Page {
     text-align: left;
 }
+
+/* Route transition wrapper */
+.page {
+    text-align: left;
+    opacity: 1;
+    transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.page.fadeOut {
+    opacity: 0; /* current content fades out */;
+    transform: translateY(10px);
+}
+
+.page.fadeIn {
+    opacity: 1; /* new content fades back in */
+    transform: translateY(0);
+}

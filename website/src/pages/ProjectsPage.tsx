@@ -7,7 +7,7 @@ function ProjectsPage() {
   return (
     <>
         <div className="Page">
-            <h1>Projects Page</h1>
+            <h2>Projects Page</h2>
             <p>Here are some of my projects.</p>
         </div>
     </>
