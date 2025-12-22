@@ -7,7 +7,7 @@ function Header() {
         <header className="header">
             <nav className="nav">
                 <div className="name">
-                    <NavLink to="/">Luke</NavLink>
+                    <NavLink to="/">Luke Zeng</NavLink>
                 </div>
                 <NavLink
                     to="/"
