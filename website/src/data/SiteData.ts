@@ -1,6 +1,7 @@
 
 
 import algorithmsThumbnail from "../assets/algorithms_thumbnail.png";
+import snipingAppThumbnail from "../assets/sniping_app_thumbnail.png";
 
 export interface ProjectCardInfo {
     title: string;
@@ -15,6 +16,12 @@ export const projectInfo: ProjectCardInfo[] = [
         image: algorithmsThumbnail,
         description: "Implementations of competitive programming algorithms and data structures.",
         links: [{ label: "Repo", url: "https://github.com/concl/algorithms" }],
+    },
+    {
+        title: "Snip.it",
+        image: snipingAppThumbnail,
+        description: "An app for students to snipe each other on campus with their phones.",
+        links: [{ label: "Repo", url: "https://github.com/clarkipeng/Snip.it" }],
     },
     {
         title: "My Website",
