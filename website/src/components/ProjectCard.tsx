@@ -1,13 +1,14 @@
 
-import mandelbrotIcon from "../assets/mandelbrot_icon.png";
 import { ProjectCardInfo } from "../data/SiteData";
 import "./ProjectCard.css";
+
+const defaultIcon = "/public/mandelbrot_icon.png";
 
 function ProjectCard( info : ProjectCardInfo ) {
 
     const image = info.image ? (
-        <img src={info.image} alt={info.title} />
-    ) : <img src={mandelbrotIcon} alt="default_project_icon" />;
+        <img src={ info.image } alt={info.title} />
+    ) : <img src={ defaultIcon } alt="default_project_icon" />;
 
     const links = info.links.map((link, index) => (
         <a

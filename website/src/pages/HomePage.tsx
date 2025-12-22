@@ -3,9 +3,10 @@ import React from 'react';
 
 import "./Page.css";
 import "./HomePage.css";
-import mandelbrotIcon from '../assets/mandelbrot_icon.png';
 
 import { homePageText } from "../data/SiteData";
+
+const mandelbrotIcon = "/public/mandelbrot_icon.png";
 
 function HomePage() {
     

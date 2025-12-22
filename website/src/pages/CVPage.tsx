@@ -13,8 +13,7 @@ function CVPage() {
                 <p>
                     Experience, education, and skills.
                 </p>
-                <hr />
-                
+                <hr />   
                 <div>
                     <h3>Experience</h3>
                     <div className="Entry">
@@ -63,6 +62,7 @@ function CVPage() {
                         <li>Experienced in 3D modeling in Blender</li>
                     </ul>
                 </div>
+                <hr />
             </div>
         </>
     );
