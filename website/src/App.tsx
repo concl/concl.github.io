@@ -13,6 +13,7 @@ import ProjectsPage from './pages/ProjectsPage';
 
 // components
 import PageHandler from './components/PageHandler';
+import Footer from './components/Footer';
 
 function App() {
 

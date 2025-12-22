@@ -10,6 +10,7 @@ import ProjectsPage from '../pages/ProjectsPage';
 
 // components
 import Header from './Header';
+import Footer from './Footer';
 
 function PageHandler() {
     const location = useLocation();
@@ -59,6 +60,7 @@ function PageHandler() {
                     <Route path="/projects" element={<ProjectsPage />} />
                 </Routes>
             </div>
+            <Footer />
         </>
     );
 }
