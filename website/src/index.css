@@ -1,12 +1,18 @@
 
 :root {
+  --color-background: #121212;
+  --color-surface: #1e1e1e;
+  --color-text: rgba(255, 255, 255, 0.87);
+  --color-primary: #6c6d9e;
+  --color-secondary: #00463f;
+
   font-family: "Space Grotesk", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 300;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--color-text);
+  background-color: var(--color-background);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -46,6 +52,10 @@ h2 {
 }
 
 h3 {
+  font-weight: 500;
+}
+
+h4 {
   font-weight: 500;
 }
 

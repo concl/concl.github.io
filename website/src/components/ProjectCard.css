@@ -1,0 +1,40 @@
+.ProjectCard {
+    border: 1px solid var(--color-primary);
+    border-radius: 8px; 
+    padding: 16px;
+    margin: 16px 0;
+    background-color: var(--color-surface);
+    display: flex;
+    align-items: stretch;
+}
+
+.TextContent {
+    flex: 1;
+    text-align: left;
+}
+
+.ImageContainer {
+    max-height: 200px;
+    overflow: hidden;
+    display: flex; /* let the image size itself within the row height */
+}
+
+img {
+    width: 20%;
+    margin-right: 16px;
+    border-radius: 8px;
+    object-fit: contain;
+    display: block;
+}
+
+.LinkButton {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 6px;
+  color: var(--color-text);
+  text-decoration: none;
+}
+.LinkButton:hover {
+  background: var(--color-secondary);
+}
