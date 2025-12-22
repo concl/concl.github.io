@@ -3,6 +3,7 @@ import React from 'react';
 
 import "./Page.css";
 import "./HomePage.css";
+import mandlebrotIcon from '../assets/mandlebrot_icon.png';
 
 function HomePage() {
     
@@ -15,7 +16,7 @@ function HomePage() {
                     I love problem solving and continuously learning new things.
                 </p>
                 <div>
-                    <img className="HomeImage" src="/src/assets/mandlebrot_icon.png" alt="mandlebrot_icon" />
+                    <img className="HomeImage" src={mandlebrotIcon} alt="mandlebrot_icon" />
                 </div>
             </div>
         </>
