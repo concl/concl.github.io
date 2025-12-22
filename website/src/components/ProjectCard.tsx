@@ -2,7 +2,7 @@
 import { ProjectCardInfo } from "../data/SiteData";
 import "./ProjectCard.css";
 
-const defaultIcon = "/public/mandelbrot_icon.png";
+const defaultIcon = "/mandelbrot_icon.png";
 
 function ProjectCard( info : ProjectCardInfo ) {
 

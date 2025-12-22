@@ -10,13 +10,13 @@ export interface ProjectCardInfo {
 export const projectInfo: ProjectCardInfo[] = [
     {
         title: "Algorithms Library",
-        image: "/public/algorithms_thumbnail.png",
+        image: "/algorithms_thumbnail.png",
         description: "Implementations of competitive programming algorithms and data structures.",
         links: [{ label: "Repo", url: "https://github.com/concl/algorithms" }],
     },
     {
         title: "Snip.it",
-        image: "/public/sniping_app_thumbnail.png",
+        image: "/sniping_app_thumbnail.png",
         description: "An app for students to snipe each other on campus with their phones.",
         links: [{ label: "Repo", url: "https://github.com/clarkipeng/Snip.it" }],
     },
