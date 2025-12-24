@@ -36,3 +36,10 @@
     color: white;
     font-weight: 500;
 }
+
+.tag {
+    display: inline-block;
+    font-weight: 300; 
+    color: var(--color-text-2);
+    margin-left: 0.5rem;
+}
