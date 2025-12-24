@@ -6,7 +6,7 @@ import "./HomePage.css";
 
 import { homePageText } from "../data/SiteData";
 
-const mandelbrotIcon = "/mandelbrot_icon.png";
+import mandelbrotIcon from "../assets/images/mandelbrot_icon.png";
 
 function HomePage() {
     

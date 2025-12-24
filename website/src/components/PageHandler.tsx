@@ -7,6 +7,8 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import HomePage from '../pages/HomePage';
 import CVPage from '../pages/CVPage';
 import ProjectsPage from '../pages/ProjectsPage';
+import BlogPage from '../pages/BlogPage';
+import BlogPost from '../pages/BlogPost';
 
 // components
 import Header from './Header';
@@ -56,8 +58,10 @@ function PageHandler() {
             <div className={`page ${transitionStage}`}>
                 <Routes location={displayLocation}>
                     <Route path="/" element={<HomePage />} />
+                    <Route path="/blog" element={<BlogPage />} />
                     <Route path="/cv" element={<CVPage />} />
                     <Route path="/projects" element={<ProjectsPage />} />
+                    <Route path="/blog/:slug" element={<BlogPost />} />
                 </Routes>
             </div>
             <Footer />

@@ -1,5 +1,10 @@
 
 
+import algorithmsThumbnail from "../assets/images/algorithms_thumbnail.png";
+import snipingAppThumbnail from "../assets/images/sniping_app_thumbnail.png";
+import machinesThumbnail from "../assets/images/machines.png";
+
+
 export interface ProjectCardInfo {
     title: string;
     image: string | null;
@@ -10,19 +15,19 @@ export interface ProjectCardInfo {
 export const projectInfo: ProjectCardInfo[] = [
     {
         title: "Algorithms Library",
-        image: "/algorithms_thumbnail.png",
+        image: algorithmsThumbnail,
         description: "Implementations of competitive programming algorithms and data structures.",
         links: [{ label: "Repo", url: "https://github.com/concl/algorithms" }],
     },
     {
         title: "Machine Learning Library",
-        image: "/machines.png",
+        image: machinesThumbnail,
         description: "Implementations of topics in machine learning.",
         links: [{ label: "Repo", url: "https://github.com/concl/machines" }],
     },
     {
         title: "Snip.it",
-        image: "/sniping_app_thumbnail.png",
+        image: snipingAppThumbnail,
         description: "An app for students to snipe each other on campus with their phones.",
         links: [{ label: "Repo", url: "https://github.com/clarkipeng/Snip.it" }],
     },
@@ -46,4 +51,18 @@ export const homePageText: string[] = [
 export const CVPageText = [
     
 ]
+
+
+export const blogPosts = [
+    {  
+        mdPath: "/blog/example.md",
+        slug: "example",
+    },
+
+    {
+        mdPath: "/blog/test_math.md",
+        slug: "test_math",
+    }
+
+];
 

@@ -11,7 +11,7 @@ function CVPage() {
             <div className="Page">
                 <h2>CV</h2>
                 <p>
-                    Experience, education, and skills.
+                    Experience, education, skills, and awards.
                 </p>
                 <hr />   
                 <div>
@@ -62,6 +62,19 @@ function CVPage() {
                         <li>Experienced in 3D modeling in Blender</li>
                     </ul>
                 </div>
+
+                <div>
+
+                    <h3>Awards and Honors</h3>
+                    <ul>
+                        <li>3rd Place ICPC Southern California Regional Contest | 2025</li>
+                        <li>2026 North American ICPC Championship Qualifier</li>
+                        <li>USACO Platinum</li>
+                        <li>LeetCode Guardian | 99th Percentile</li>
+                    </ul>
+
+                </div>
+
                 <hr />
             </div>
         </>

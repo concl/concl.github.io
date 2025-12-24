@@ -2,10 +2,12 @@
 :root {
   --color-background: #121212;
   --color-surface: #1e1e1e;
+  --color-bg-2: #1e1e1e;
   --color-heading: hsla(0, 0%, 95%, 0.87);
   --color-text: hsla(0, 0%, 75%, 0.87);
-  --color-primary: #6c6d9e;
-  --color-secondary: #00463f;
+  --color-primary: hsl(239, 20%, 52%);
+  --color-secondary: hsl(174, 100%, 14%);
+  --color-border: hsl(239, 20%, 20%);
 
   font-family: "Space Grotesk", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -27,7 +29,7 @@ html {
 
 a {
   font-weight: 300;
-  color: inherit;
+  color: var(--color-primary);
   text-decoration: inherit;
 }
 
@@ -47,6 +49,7 @@ h1 {
   color: var(--color-heading);
   font-size: 3.2em;
   line-height: 1.1;
+  font-weight: 500;
 }
 
 h2 {
@@ -95,3 +98,10 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
+/* Utility classes */
+.text-center {
+    text-align: center;
+}
+
