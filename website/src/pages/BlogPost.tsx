@@ -1,3 +1,4 @@
+
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
@@ -6,6 +7,7 @@ import "katex/dist/katex.min.css";
 import { useState, useEffect } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { getMarkdown } from "../data/MarkdownCache";
+import { MarkdownRender } from "../utilities/MarkdownRender";
 
 function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
@@ -33,12 +35,7 @@ function BlogPost() {
 
   return (
     <div className="BlogPost">
-      <ReactMarkdown
-        remarkPlugins={[remarkGfm, remarkMath]}
-        rehypePlugins={[rehypeKatex]}
-      >
-        {markdown}
-      </ReactMarkdown>
+      <MarkdownRender markdown={markdown} />
     </div>
   );
 }

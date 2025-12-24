@@ -54,14 +54,14 @@ export const CVPageText = [
 
 
 export const blogPosts = [
-    {  
-        mdPath: "/blog/example.md",
-        slug: "example",
-    },
 
     {
         mdPath: "/blog/test_math.md",
         slug: "test_math",
+    },
+    {  
+        mdPath: "/blog/example.md",
+        slug: "example",
     }
 
 ];

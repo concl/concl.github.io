@@ -7,6 +7,7 @@ import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
 
 import { getMarkdown } from "../data/MarkdownCache";
+import { MarkdownRender } from "../utilities/MarkdownRender";
 
 import "./BlogCard.css";
 
@@ -30,12 +31,7 @@ function BlogCard({ mdPath, slug } : { mdPath: string; slug: string; title?: str
     return (
         <div className="BlogCard">
             <div className="Preview">
-                <ReactMarkdown
-                    remarkPlugins={[remarkGfm, remarkMath]}
-                    rehypePlugins={[rehypeKatex]}
-                >
-                    {markdown}
-                </ReactMarkdown>
+                <MarkdownRender markdown={ markdown } />
             </div>
             <div className="text-center">
                 <Link to={`/blog/${slug}`} className="ReadMoreLink">Read More</Link>
