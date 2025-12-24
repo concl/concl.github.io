@@ -2,7 +2,8 @@
 :root {
   --color-background: #121212;
   --color-surface: #1e1e1e;
-  --color-text: rgba(255, 255, 255, 0.87);
+  --color-heading: hsla(0, 0%, 95%, 0.87);
+  --color-text: hsla(0, 0%, 75%, 0.87);
   --color-primary: #6c6d9e;
   --color-secondary: #00463f;
 
@@ -26,7 +27,7 @@ html {
 
 a {
   font-weight: 300;
-  color: #fff;
+  color: inherit;
   text-decoration: inherit;
 }
 
@@ -43,19 +44,23 @@ body {
 }
 
 h1 {
+  color: var(--color-heading);
   font-size: 3.2em;
   line-height: 1.1;
 }
 
 h2 {
+  color: var(--color-heading);
   font-weight: 500;
 }
 
 h3 {
+  color: var(--color-heading);
   font-weight: 500;
 }
 
 h4 {
+  color: var(--color-heading);
   font-weight: 500;
 }
 

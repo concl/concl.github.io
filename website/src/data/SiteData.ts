@@ -15,6 +15,12 @@ export const projectInfo: ProjectCardInfo[] = [
         links: [{ label: "Repo", url: "https://github.com/concl/algorithms" }],
     },
     {
+        title: "Machine Learning Library",
+        image: "/machines.png",
+        description: "Implementations of topics in machine learning.",
+        links: [{ label: "Repo", url: "https://github.com/concl/machines" }],
+    },
+    {
         title: "Snip.it",
         image: "/sniping_app_thumbnail.png",
         description: "An app for students to snipe each other on campus with their phones.",
