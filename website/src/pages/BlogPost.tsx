@@ -5,9 +5,12 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
 import { useState, useEffect } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { NavLink, useLocation, useParams } from "react-router-dom";
 import { getMarkdown } from "../data/MarkdownCache";
 import { MarkdownRender } from "../utilities/MarkdownRender";
+
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
@@ -35,7 +38,18 @@ function BlogPost() {
 
   return (
     <div className="BlogPost">
-      <MarkdownRender markdown={markdown} />
+      <p>
+        <NavLink to="/blog">← Back to Blog</NavLink>
+      </p>
+      {markdown === "...Loading" ? (
+        <SkeletonTheme baseColor="var(--color-bg-3)" highlightColor="var(--color-highlight)">
+            <h1><Skeleton /></h1>
+            <h2><Skeleton width={"20%"}/></h2>
+            <Skeleton count={10} />
+        </SkeletonTheme>
+      ) : (
+        <MarkdownRender markdown={markdown} />
+      )}
     </div>
   );
 }

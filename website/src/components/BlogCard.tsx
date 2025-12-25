@@ -10,6 +10,8 @@ import { getMarkdown } from "../data/MarkdownCache";
 import { MarkdownRender } from "../utilities/MarkdownRender";
 
 import "./BlogCard.css";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 function BlogCard({ mdPath, slug } : { mdPath: string; slug: string; title?: string; maxChars?: number }) {
 
@@ -31,7 +33,15 @@ function BlogCard({ mdPath, slug } : { mdPath: string; slug: string; title?: str
     return (
         <div className="BlogCard">
             <div className="Preview">
-                <MarkdownRender markdown={ markdown } />
+                {markdown === "...Loading" ? (
+                    <SkeletonTheme baseColor="var(--color-bg-3)" highlightColor="var(--color-highlight)">
+                        <h1><Skeleton /></h1>
+                        <h2><Skeleton width={"20%"}/></h2>
+                        <Skeleton count={10} />
+                    </SkeletonTheme>
+                ) : (
+                    <MarkdownRender markdown={ markdown } />
+                )}
             </div>
             <div className="text-center">
                 <Link to={`/blog/${slug}`} className="ReadMoreLink">Read More</Link>
