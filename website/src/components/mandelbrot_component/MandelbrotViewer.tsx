@@ -1,6 +1,4 @@
-
 import { useState, useEffect, useRef } from 'react'
-import './App.css'
 
 import { initBuffers } from "./helpers/init_buffers.js";
 import { drawScene } from "./helpers/draw_scene.js";
@@ -8,6 +6,7 @@ import { drawScene } from "./helpers/draw_scene.js";
 import vsSource from "./shaders/VertexShader.glsl?raw";
 import fsSource from "./shaders/FragmentShader.glsl?raw";
 
+import "./MandelbrotViewer.css";
 // creates a shader of the given type, uploads the source and
 // compiles it.
 //
@@ -57,7 +56,7 @@ function initShaderProgram(gl: WebGLRenderingContext, vsSource: string, fsSource
         );
         return null;
     }
-
+    
     return shaderProgram;
 }
 
@@ -134,9 +133,9 @@ function main() {
 const canvasWidth = 1024;
 const canvasHeight = 1024;
 
-function App() {
-    const [active, setActive] = useState(false);
-    const [dragging, setDragging] = useState(false);
+function MandelbrotViewer() {
+    const [active, setActive] = useState(true);
+    const [dragging, setDragging] = useState(true);
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const lastPosRef = useRef<{ x: number; y: number } | null>(null);
 
@@ -194,22 +193,17 @@ function App() {
         main();
     }, []);
     return (
-        <>
-            <div className="App">
-                <canvas 
-                    ref={canvasRef}
-                    id="mandelbrot-canvas"
-                    width = {canvasWidth} 
-                    height = {canvasHeight}
-                    onMouseDown={() => setActive(true)}
-                    onMouseLeave={() => setActive(false)}
-                >
+        <canvas 
+            ref={canvasRef}
+            id="mandelbrot-canvas"
+            width = {canvasWidth} 
+            height = {canvasHeight}
+            onMouseDown={() => setActive(true)}
+            onMouseLeave={() => setActive(false)}
+        >
 
-                </canvas>
-            </div>
-        </>
+        </canvas>
     )
 }
 
-
-export default App
+export default MandelbrotViewer;

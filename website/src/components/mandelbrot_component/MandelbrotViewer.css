@@ -1,0 +1,7 @@
+
+
+#mandelbrot-canvas {
+    width: 100%;
+    /* or 400px, 50vh, etc. */
+    height: auto;
+}

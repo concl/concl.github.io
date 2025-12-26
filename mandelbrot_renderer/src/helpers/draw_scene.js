@@ -1,4 +1,5 @@
 
+
 // Tell WebGL how to pull out the positions from the position
 // buffer into the vertexPosition attribute.
 function setPositionAttribute(gl, buffers, programInfo) {
@@ -21,7 +22,7 @@ function setPositionAttribute(gl, buffers, programInfo) {
 }
 
 
-function drawScene(gl, programInfo, buffers) {
+function drawScene(gl, programInfo, buffers, position = [0.0, 0.0], zoom = 1.0, maxIter=2048) {
     gl.clearColor(0.0, 0.0, 0.0, 1.0); // Clear to black, fully opaque
     gl.clearDepth(1.0); // Clear everything
     gl.enable(gl.DEPTH_TEST); // Enable depth testing
@@ -38,7 +39,7 @@ function drawScene(gl, programInfo, buffers) {
     // and we only want to see objects between 0.1 units
     // and 100 units away from the camera.
 
-    const fieldOfView = (45 * Math.PI) / 180; // in radians
+    const fieldOfView = (90 * Math.PI) / 180; // in radians
     const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
     const zNear = 0.1;
     const zFar = 100.0;
@@ -57,7 +58,7 @@ function drawScene(gl, programInfo, buffers) {
     mat4.translate(
         modelViewMatrix, // destination matrix
         modelViewMatrix, // matrix to translate
-        [-0.0, 0.0, -6.0],
+        [0.0, 0.0, -1.0],
     ); // amount to translate
 
     // Tell WebGL how to pull out the positions from the position
@@ -78,6 +79,11 @@ function drawScene(gl, programInfo, buffers) {
         false,
         modelViewMatrix,
     );
+
+    gl.uniform1i(programInfo.uniformLocations.maxIter, maxIter);
+    gl.uniform1f(programInfo.uniformLocations.zoom, zoom);
+    gl.uniform2f(programInfo.uniformLocations.position, position[0], position[1]);
+
 
     {
         const offset = 0;

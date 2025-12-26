@@ -1,8 +1,16 @@
 #root {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
 }
 
+#mandelbrot-canvas {
+    width: 100%;
+    /* or 400px, 50vh, etc. */
+    height: auto;
+}
 
+.App {
+    width: 800px;
+}
