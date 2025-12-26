@@ -17,6 +17,7 @@ import Skeleton from 'react-loading-skeleton';
 function HomePage() {
 
     const [interactiveMandelbrot, setInteractiveMandelbrot] = useState(false);
+    const [alternativeTextLoaded, setAlternativeTextLoaded] = useState("Do not click this image !");
 
     return (
         <>
@@ -25,7 +26,7 @@ function HomePage() {
                     <p key={index}>{paragraph}</p>
                 ))}
 
-                <p className="small">Do not click this image !</p>
+                <p className="small">{alternativeTextLoaded}</p>
                 <div className="MandelbrotSection">
                     {
                         interactiveMandelbrot ?
@@ -34,7 +35,10 @@ function HomePage() {
                                 className="HomeImage"
                                 src={mandelbrotIcon}
                                 alt="mandelbrot_icon"
-                                onClick={() => setInteractiveMandelbrot(true)}
+                                onClick={() => {
+                                    setInteractiveMandelbrot(true);
+                                    setAlternativeTextLoaded("Nooo ! You made it interactive !");
+                                }}
                             />
                     }
                 </div>

@@ -1,19 +1,17 @@
-
-
 varying highp vec2 interpolatedPosition;
 
 uniform highp float uZoom;
 uniform highp vec2 uPosition;
 
 uniform int uMaxIter;
-const int MAX_ITER = 2048;
+const int MAX_ITER = 8192;
 
 const highp vec4 interior = vec4(0.0, 0.0, 0.0, 1.0);
 // #663498
-const highp vec4 far = vec4(102.0/255.0, 52.0/255.0, 152.0/255.0, 1.0);
+// const highp vec4 far = vec4(102.0/255.0, 52.0/255.0, 152.0/255.0, 1.0);
 
 // #40FF40
-const highp vec4 mid = vec4(64.0/255.0, 1.0, 64.0/255.0, 1.0);
+// const highp vec4 mid = vec4(64.0/255.0, 1.0, 64.0/255.0, 1.0);
 
 // #FFFF40
 const highp vec4 near = vec4(1.0, 1.0, 64.0/255.0, 1.0);
@@ -50,17 +48,29 @@ void main() {
 
     int iter = totalIter;
     if (iter == uMaxIter) {
-
         gl_FragColor = interior;
-    
     } else {
-        highp float t = float(iter) / float(uMaxIter);
-        if (t < 0.0625) {
-            highp float local_t = t / 0.0625 * 1.5;
-            gl_FragColor = mix(far, mid, local_t);
+        highp float r = max(64.0, 150.0 - 4.0 * float(iter)) / 255.0;
+        highp float g = min(4.0 * float(iter + 1), 255.0) / 255.0;
+        highp float b = max(64.0, 200.0 - 4.0 * float(iter)) / 255.0;
+        highp vec4 farColor = vec4(r, g, b, 1.0);
+
+        highp float tIter = float(iter) / float(uMaxIter);
+
+        // original cutoff at 5%; blend from 5% to 10%
+        highp float edgeStart = 0.0275;
+        highp float edgeEnd   = 0.060;
+
+        if (tIter <= edgeStart) {
+            // pure far
+            gl_FragColor = farColor;
+        } else if (tIter >= edgeEnd) {
+            // pure near (same as before for most of the near region)
+            gl_FragColor = near;
         } else {
-            highp float local_t = (t - 0.0625) / 0.0625;
-            gl_FragColor = mix(mid, near, local_t);
+            // smooth transition just in [edgeStart, edgeEnd]
+            highp float t = (tIter - edgeStart) / (edgeEnd - edgeStart);
+            gl_FragColor = mix(farColor, near, t);
         }
     }
 }

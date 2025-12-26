@@ -62,8 +62,10 @@ function initShaderProgram(gl: WebGLRenderingContext, vsSource: string, fsSource
 
 
 let then = 0;
-let zoom = 39.61466095838026;
-let position = [-0.6488824541098683, -0.42474923127234115];
+let zoom = 40.0;
+let position = [-0.648625, -0.425];
+let velocity = [0.0, 0.0];
+const friction = 0.90;
 
 // Draw the scene repeatedly
 function render(gl, programInfo, buffers, now) {
@@ -125,13 +127,14 @@ function main() {
     };
 
     const buffers = initBuffers(gl);
-    // drawScene(gl, programInfo, buffers);
+    drawScene(gl, programInfo, buffers, position, zoom);
     requestAnimationFrame((now) => render(gl, programInfo, buffers, now));
 };
 
 
 const canvasWidth = 1024;
 const canvasHeight = 1024;
+const frameRate = 60;
 
 function MandelbrotViewer() {
     const [active, setActive] = useState(true);
@@ -139,6 +142,13 @@ function MandelbrotViewer() {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const lastPosRef = useRef<{ x: number; y: number } | null>(null);
 
+    // reset on mount
+    useEffect(() => {
+        then = 0;
+        zoom = 40.0;
+        position = [-0.648625, -0.425];
+        velocity = [0.0, 0.0];
+    }, []);
 
     useEffect(() => {
         const canvas = canvasRef.current;
