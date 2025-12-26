@@ -62,8 +62,8 @@ function initShaderProgram(gl: WebGLRenderingContext, vsSource: string, fsSource
 
 
 let then = 0;
-let zoom = 1.0;
-let position = [0.0, 0.0];
+let zoom = 39.61466095838026;
+let position = [-0.6488824541098683, -0.42474923127234115];
 
 // Draw the scene repeatedly
 function render(gl, programInfo, buffers, now) {
@@ -148,8 +148,10 @@ function MandelbrotViewer() {
             if (!active) return;
             e.preventDefault();
             const delta = Math.sign(e.deltaY);
-            if (delta < 0) zoom *= 1.05;
-            else zoom /= 1.05;
+            if (delta < 0) zoom *= 1.025;
+            else zoom /= 1.025;
+
+            console.log("zoom:", zoom);
         }
 
         function handleMouseMove(e: MouseEvent) {
@@ -163,6 +165,8 @@ function MandelbrotViewer() {
             position[1] += (dy / zoom) * 0.0025 * (800 / canvasHeight);
 
             lastPosRef.current = { x: e.clientX, y: e.clientY };
+
+            console.log("position:", position);
         }
         function handleMouseDown(e: MouseEvent) {
             setDragging(true);
