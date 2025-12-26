@@ -19,22 +19,25 @@ hr {
 }
 
 .Link {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .Link p {
-  margin: 0;
+    margin: 0;
 }
 
 .Link hr {
-  flex: 1;              /* line fills the space between text and link */
-  border: none;
-  border-top: 1px dotted #666; /* style of the line */
-  margin: 0;
+    flex: 1;
+    /* line fills the space between text and link */
+    border: none;
+    border-top: 1px dotted #666;
+    /* style of the line */
+    margin: 0;
 }
 
 .Link a {
-  white-space: nowrap;  /* keep URL on one line */
+    white-space: nowrap;
+    /* keep URL on one line */
 }

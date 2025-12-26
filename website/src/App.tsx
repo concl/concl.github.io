@@ -17,15 +17,15 @@ import Footer from './components/Footer';
 
 function App() {
 
-  return (
-    <>
-      <div className="portfolio-layout">
-        <Router>
-          <PageHandler />
-        </Router>
-      </div>
-    </>
-  )
+    return (
+        <>
+            <div className="portfolio-layout">
+                <Router>
+                    <PageHandler />
+                </Router>
+            </div>
+        </>
+    )
 }
 
 export default App

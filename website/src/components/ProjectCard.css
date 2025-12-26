@@ -1,12 +1,12 @@
 .ProjectCard {
     border: 1px solid var(--color-border);
-    border-radius: 8px; 
+    border-radius: 8px;
     padding: 16px;
     margin: 16px 0;
     background-color: var(--color-surface);
     display: flex;
     align-items: stretch;
-    filter: drop-shadow(0 8px 5px var(--color-shadow) );
+    filter: drop-shadow(0 8px 5px var(--color-shadow));
 }
 
 .TextContent {
@@ -17,7 +17,8 @@
 .ImageContainer {
     max-height: 200px;
     overflow: hidden;
-    display: flex; /* let the image size itself within the row height */
+    display: flex;
+    /* let the image size itself within the row height */
 }
 
 img {
@@ -29,13 +30,14 @@ img {
 }
 
 .LinkButton {
-  display: inline-block;
-  padding: 0.4rem 0.8rem;
-  border: 1px solid var(--color-primary);
-  border-radius: 6px;
-  color: var(--color-text);
-  text-decoration: none;
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--color-primary);
+    border-radius: 6px;
+    color: var(--color-text);
+    text-decoration: none;
 }
+
 .LinkButton:hover {
-  background: var(--color-secondary);
+    background: var(--color-secondary);
 }

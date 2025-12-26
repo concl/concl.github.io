@@ -6,18 +6,18 @@ import rehypeRaw from "rehype-raw";
 import "katex/dist/katex.min.css";
 
 export interface MarkdownRenderProps {
-  markdown: string;
+    markdown: string;
 }
 
 export function MarkdownRender({ markdown }: MarkdownRenderProps) {
-  return (
-    <ReactMarkdown
-      remarkPlugins={[remarkGfm, remarkMath]}
-      rehypePlugins={[rehypeRaw, rehypeKatex]}
-    >
-      {markdown}
-    </ReactMarkdown>
-  );
+    return (
+        <ReactMarkdown
+            remarkPlugins={[remarkGfm, remarkMath]}
+            rehypePlugins={[rehypeRaw, rehypeKatex]}
+        >
+            {markdown}
+        </ReactMarkdown>
+    );
 }
 
 

@@ -22,22 +22,14 @@ function Header() {
             setTag(" — " + location.pathname.slice(1).charAt(0).toUpperCase() + location.pathname.slice(2));
         }
     }, [location]);
-    
+
     return (
         <header className="header">
             <nav className="nav">
                 <div className="name">
                     <NavLink to="/">Luke Zeng<div className="tag">{tag}</div></NavLink>
                 </div>
-                {/* <NavLink
-                    to="/"
-                    className={({ isActive }) =>
-                        isActive ? "nav-link active" : "nav-link"
-                    }
-                    end
-                >
-                    Home
-                </NavLink> */}
+
                 <NavLink
                     to="/blog"
                     className={({ isActive }) =>
