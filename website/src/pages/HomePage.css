@@ -1,16 +1,31 @@
-
-
 .MandelbrotSection {
+    position: relative;
     width: 100%;
     height: auto;
     aspect-ratio: 1 / 1;
     display: block;
-    /* margin: 20px 0; */
     border-radius: 8px;
     overflow: hidden;
+    border: 2px solid transparent;
+    filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
 }
 
 .MandelbrotSection .HomeImage {
     width: 100%;
     height: auto;   
+}
+
+.MandelbrotSectionAnimate {
+  animation: MandelbrotAnimate 400ms ease forwards;
+}
+
+@keyframes MandelbrotAnimate {
+  0% {
+    filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
+    border-color: transparent;
+  }
+  100% {
+    filter: drop-shadow(0 8px 5px var(--color-shadow));
+    border-color: var(--color-primary);
+  }
 }

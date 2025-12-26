@@ -10,6 +10,7 @@
     --color-primary: hsl(239, 20%, 52%);
     --color-secondary: hsl(174, 100%, 14%);
     --color-border: hsl(239, 20%, 20%);
+    --color-accent: hsl(290, 100%, 80%);
     --color-shadow: hsla(0, 0%, 0%, 0.5);
 
     font-family: "Space Grotesk", system-ui, Avenir, Helvetica, Arial, sans-serif;

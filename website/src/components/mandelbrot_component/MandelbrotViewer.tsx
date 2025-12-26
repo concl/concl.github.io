@@ -63,18 +63,46 @@ function initShaderProgram(gl: WebGLRenderingContext, vsSource: string, fsSource
 
 let then = 0;
 let zoom = 40.0;
+
 let position = [-0.648625, -0.425];
+
+let maxVelocity = 0.05;
 let velocity = [0.0, 0.0];
-const friction = 0.90;
+let isDragging = false;
+const friction = 0.01;
 
 // Draw the scene repeatedly
 function render(gl, programInfo, buffers, now) {
+    const eps = 0.000001;
     now *= 0.001; // convert to seconds
     deltaTime = now - then;
     then = now;
 
     drawScene(gl, programInfo, buffers, position, zoom);
-    //   squareRotation += deltaTime;
+
+    // // apply velocity only when not actively dragging (inertia phase)
+    // if (!isDragging) {
+    //     position[0] += velocity[0];
+    //     position[1] += velocity[1];
+
+    //     // apply friction
+    //     let length = Math.sqrt(velocity[0] * velocity[0] + velocity[1] * velocity[1]);
+    //     let direc = [velocity[0] / (length + eps), velocity[1] / (length + eps)];
+
+    //     if (length > maxVelocity) {
+    //         velocity[0] = direc[0] * maxVelocity;
+    //         velocity[1] = direc[1] * maxVelocity;
+    //         length = maxVelocity;
+    //     }
+
+    //     if (length < friction * deltaTime) {
+    //         velocity = [0.0, 0.0];
+    //     } else {
+    //         velocity[0] -= direc[0] * friction * deltaTime;
+    //         velocity[1] -= direc[1] * friction * deltaTime;
+    //     }
+
+    // }
 
     requestAnimationFrame((now) => render(gl, programInfo, buffers, now));
 }
@@ -137,8 +165,8 @@ const canvasHeight = 1024;
 const frameRate = 60;
 
 function MandelbrotViewer() {
-    const [active, setActive] = useState(true);
-    const [dragging, setDragging] = useState(true);
+    const [active, setActive] = useState(false);
+    const [dragging, setDragging] = useState(false);
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const lastPosRef = useRef<{ x: number; y: number } | null>(null);
 
@@ -174,17 +202,21 @@ function MandelbrotViewer() {
             position[0] -= (dx / zoom) * 0.0025 * (800 / canvasWidth);
             position[1] += (dy / zoom) * 0.0025 * (800 / canvasHeight);
 
-            lastPosRef.current = { x: e.clientX, y: e.clientY };
+            // // update velocity based on latest mouse movement (used for inertia after release)
+            // velocity[0] = -(dx / zoom) * 0.0025 * (800 / canvasWidth);
+            // velocity[1] = (dy / zoom) * 0.0025 * (800 / canvasHeight);
 
-            // console.log("position:", position);
+            lastPosRef.current = { x: e.clientX, y: e.clientY };
         }
         function handleMouseDown(e: MouseEvent) {
             setDragging(true);
+            isDragging = true;
             lastPosRef.current = { x: e.clientX, y: e.clientY };
         }
 
         function handleMouseUp() {
             setDragging(false);
+            isDragging = false;
             lastPosRef.current = null;
         }
 
@@ -194,6 +226,8 @@ function MandelbrotViewer() {
         canvas.addEventListener("mousemove", handleMouseMove);
         window.addEventListener("mouseup", handleMouseUp);
         return () => {
+            canvas.removeEventListener("wheel", handleWheel as EventListener);
+            canvas.removeEventListener("mousedown", handleMouseDown as EventListener);
             canvas.removeEventListener("mousemove", handleMouseMove);
             window.removeEventListener("mouseup", handleMouseUp);
         };

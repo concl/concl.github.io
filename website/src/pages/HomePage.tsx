@@ -27,7 +27,7 @@ function HomePage() {
                 ))}
 
                 <p className="small">{alternativeTextLoaded}</p>
-                <div className="MandelbrotSection">
+                <div className= {"MandelbrotSection" + (interactiveMandelbrot ? " MandelbrotSectionAnimate" : "")}>
                     {
                         interactiveMandelbrot ?
                             <MandelbrotViewer /> :

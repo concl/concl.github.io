@@ -1,4 +1,3 @@
-
 .Page {
     text-align: left;
 }
@@ -25,5 +24,3 @@
     opacity: 1; /* new content fades back in */
     transform: translateY(0);
 }
-
-
