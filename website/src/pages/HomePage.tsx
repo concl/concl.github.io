@@ -12,6 +12,8 @@ import mandelbrotIcon from "../assets/images/mandelbrot_icon.png";
 
 import MandelbrotViewer from '../components/mandelbrot_component/MandelbrotViewer';
 
+import Skeleton from 'react-loading-skeleton';
+
 function HomePage() {
 
     const [interactiveMandelbrot, setInteractiveMandelbrot] = useState(false);

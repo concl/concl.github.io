@@ -148,8 +148,8 @@ function MandelbrotViewer() {
             if (!active) return;
             e.preventDefault();
             const delta = Math.sign(e.deltaY);
-            if (delta < 0) zoom *= 1.025;
-            else zoom /= 1.025;
+            if (delta < 0) zoom *= 1.1;
+            else zoom /= 1.1;
 
             // console.log("zoom:", zoom);
         }
