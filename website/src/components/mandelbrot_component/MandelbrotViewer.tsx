@@ -68,7 +68,6 @@ let position = [-0.648625, -0.425];
 
 let maxVelocity = 0.05;
 let velocity = [0.0, 0.0];
-let isDragging = false;
 const friction = 0.01;
 
 // Draw the scene repeatedly
@@ -210,13 +209,11 @@ function MandelbrotViewer() {
         }
         function handleMouseDown(e: MouseEvent) {
             setDragging(true);
-            isDragging = true;
             lastPosRef.current = { x: e.clientX, y: e.clientY };
         }
 
         function handleMouseUp() {
             setDragging(false);
-            isDragging = false;
             lastPosRef.current = null;
         }
 
@@ -248,6 +245,7 @@ function MandelbrotViewer() {
             height = {canvasHeight}
             onMouseDown={() => setActive(true)}
             onMouseLeave={() => setActive(false)}
+            // onMouseEnter={() => setActive(true)}
         >
 
         </canvas>
