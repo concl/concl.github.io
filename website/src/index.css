@@ -130,3 +130,8 @@ figure img {
 .text-center {
     text-align: center;
 }
+
+.small {
+    font-size: 0.875rem;
+    color: var(--color-text-2);
+}

@@ -22,6 +22,8 @@ function HomePage() {
                 {homePageText.map((paragraph, index) => (
                     <p key={index}>{paragraph}</p>
                 ))}
+
+                <p className="small">Do not click this image !</p>
                 <div className="MandelbrotSection">
                     {
                         interactiveMandelbrot ?
