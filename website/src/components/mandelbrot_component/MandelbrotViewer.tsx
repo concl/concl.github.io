@@ -151,7 +151,7 @@ function MandelbrotViewer() {
             if (delta < 0) zoom *= 1.025;
             else zoom /= 1.025;
 
-            console.log("zoom:", zoom);
+            // console.log("zoom:", zoom);
         }
 
         function handleMouseMove(e: MouseEvent) {
@@ -166,7 +166,7 @@ function MandelbrotViewer() {
 
             lastPosRef.current = { x: e.clientX, y: e.clientY };
 
-            console.log("position:", position);
+            // console.log("position:", position);
         }
         function handleMouseDown(e: MouseEvent) {
             setDragging(true);
