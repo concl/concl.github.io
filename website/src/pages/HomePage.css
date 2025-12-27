@@ -1,3 +1,4 @@
+
 .MandelbrotSection {
     position: relative;
     width: 100%;
@@ -16,16 +17,35 @@
 }
 
 .MandelbrotSectionAnimate {
-  animation: MandelbrotAnimate 400ms ease forwards;
+animation: MandelbrotAnimate 400ms ease forwards;
 }
 
+
+
 @keyframes MandelbrotAnimate {
-  0% {
-    filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
-    border-color: transparent;
-  }
-  100% {
-    filter: drop-shadow(0 8px 5px var(--color-shadow));
-    border-color: var(--color-primary);
-  }
+    0% {
+        filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
+        border-color: transparent;
+    }
+    100% {
+        filter: drop-shadow(0 8px 5px var(--color-shadow));
+        border-color: var(--color-primary);
+    }
 }
+
+.Border {
+    border-color: var(--color-primary);
+    transition: border-color 400ms ease;
+}
+
+.Border.BorderActive {
+    border-color: var(--color-primary);
+    filter: drop-shadow(0 8px 5px var(--color-shadow));
+}
+
+
+.Border.BorderInactive {
+    border-color: transparent;
+    filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));
+}
+

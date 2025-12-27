@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useContext, useRef } from 'react'
 
 import { initBuffers } from "./helpers/init_buffers.js";
 import { drawScene } from "./helpers/draw_scene.js";
@@ -163,7 +163,7 @@ const canvasWidth = 1024;
 const canvasHeight = 1024;
 const frameRate = 60;
 
-function MandelbrotViewer() {
+function MandelbrotViewer( { activeSignal = null }: { activeSignal: ((bool: boolean) => void) | null } ) {
     const [active, setActive] = useState(false);
     const [dragging, setDragging] = useState(false);
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -243,8 +243,18 @@ function MandelbrotViewer() {
             id="mandelbrot-canvas"
             width = {canvasWidth} 
             height = {canvasHeight}
-            onMouseDown={() => setActive(true)}
-            onMouseLeave={() => setActive(false)}
+            onMouseDown={() => {
+                setActive(true);
+                if (activeSignal) {
+                    activeSignal(true);
+                }
+            }}
+            onMouseLeave={() => {
+                setActive(false);
+                if (activeSignal) {
+                    activeSignal(false);
+                }
+            }}
             // onMouseEnter={() => setActive(true)}
         >
 

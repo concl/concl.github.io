@@ -18,6 +18,18 @@ function HomePage() {
 
     const [interactiveMandelbrot, setInteractiveMandelbrot] = useState(false);
     const [alternativeTextLoaded, setAlternativeTextLoaded] = useState("Do not click this image !");
+    const [borderActive, setBorderActive] = useState(false);
+    const [mandelbrotClass, setMandelbrotClass] = useState("");
+
+    const callBack = (isActive: boolean) => {
+        setBorderActive(isActive);
+        if (isActive) {
+            setMandelbrotClass(" Border BorderActive");
+        } else {
+            setMandelbrotClass(" Border BorderInactive");
+        }
+        console.log("Border active:", isActive);
+    }
 
     return (
         <>
@@ -27,16 +39,17 @@ function HomePage() {
                 ))}
 
                 <p className="small">{alternativeTextLoaded}</p>
-                <div className= {"MandelbrotSection" + (interactiveMandelbrot ? " MandelbrotSectionAnimate" : "")}>
+                <div className = {"MandelbrotSection" + mandelbrotClass}>
                     {
                         interactiveMandelbrot ?
-                            <MandelbrotViewer /> :
+                            <MandelbrotViewer activeSignal={callBack} /> :
                             <img
                                 className="HomeImage"
                                 src={mandelbrotIcon}
                                 alt="mandelbrot_icon"
                                 onClick={() => {
                                     setInteractiveMandelbrot(true);
+                                    setMandelbrotClass(" MandelbrotSectionAnimate");
                                     setAlternativeTextLoaded("Nooo ! You made it interactive !");
                                 }}
                             />
