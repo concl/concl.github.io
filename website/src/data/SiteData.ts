@@ -62,6 +62,10 @@ export const blogPosts = [
     {  
         mdPath: "/blog/example.md",
         slug: "example",
+    },
+    {
+        mdPath: "/blog/mandelbrot_post.md",
+        slug: "mandelbrot_post",
     }
 
 ];
